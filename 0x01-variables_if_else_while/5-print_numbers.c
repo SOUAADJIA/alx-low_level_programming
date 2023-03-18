@@ -6,13 +6,12 @@
  */
 int main(void)
 {
-	int nbr = 48;
+        int n;
 
-	while (nbr <= 57)
-	{
-		putchar(nbr);
-		nbr++;
-	}
-	putchar('\n');
-	return (0);
+        for (n = 0; n <= 9; n++)
+        {
+                printf("%d", n);
+        }
+        printf("\n");
+        return (0);
 }
