@@ -6,16 +6,25 @@
  */
 int main(void)
 {
-	unsigned long int a = 1, b = 2, c, i;
+	int first = 1, second = 2, next;
+	int count = 0;
 
-	printf("%lu, %lu, ", a, b);
-	for (i = 2; i < 98; i++)
+	printf("%d, %d, ", first, second);
+	count += 2;
+
+	while (count < 98)
 	{
-		c = a + b;
-		printf("%lu, ", c);
-		a = b;
-		b = c;
+		next = first + second;
+		printf("%d", next);
+		if (count < 97)
+		{
+			printf(", ");
+		}
+		count++;
+		first = second;
+		second = next;
 	}
-	printf("%lu\n", a + b);
+	printf("\n");
+
 	return (0);
 }
