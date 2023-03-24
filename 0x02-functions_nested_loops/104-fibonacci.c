@@ -4,23 +4,28 @@
  * starting with 1 and 2, followed by a new line.
  * Return: Always 0.
  */
-
-
 int main(void)
 {
-	int x;
-	unsigned long i = 0, j = 1, sum;
+	unsigned long int i;
+	unsigned long int bef = 1;
+	unsigned long int aft = 2;
 
-	for (x = 0; x < 98; x++)
+	printf("%lu", bef);
+
+	for (i = 1; i < 91; i++)
 	{
-		sum = i + j;
-		printf("%lu", sum);
-		i = j;
-		j = sum;
-		if (x == 97)
-			printf("\n");
-		else
-			printf(", ");
+		printf(", %lu", aft);
+		aft += bef;
+		bef = aft - bef;
 	}
+
+	for (i = 91; i < 98; i++)
+	{
+		printf(", %lu", aft);
+		aft += bef;
+		bef = aft - bef;
+	}
+
+	printf("\n");
 	return (0);
 }
