@@ -4,26 +4,36 @@
  *
  * Return: always 0
  **/
-
 int main(void)
 {
-	unsigned long int i, n = 612852475143;
+	unsigned long num = 612852475143; /* Declare and initialize the number*/
+	unsigned long i, largest_factor = 0;
 
-	/**
-	 * The square root of 612852475143 is approximately 782849,
-	 * so we can safely limit our search for factors
-	 * to the range from 3 to 782849.
-	 */
-	for (i = 3; i < 782849; i = i + 2)
+	/* Divide the number by 2 until it's no longer even */
+	while (num % 2 == 0)
 	{
-		while ((n % i == 0) && (n != i))
-			n = n / i;
-		/**
-		 * The reason we remove all factors of i from n is
-		 * This allows us to continue checking for prime factors until
-		 * we have found the largest prime factor of n
-		 */
+		largest_factor = 2;
+		num /= 2;
 	}
-	printf("%lu\n", n);
+
+	/* Check for odd factors up to the square root of the number */
+
+	for (i = 3; i <= sqrt(num); i += 2)
+	{
+		while (num % i == 0)
+		{
+			largest_factor = i;
+			num /= i;
+		}
+	}
+	/* If the remaining number is greater than 2, it must be prime */
+	if (num > 2)
+	{
+		largest_factor = num;
+	}
+	/* Print the largest prime factor */
+
+	printf("%lu\n", largest_factor);
 	return (0);
 }
+
