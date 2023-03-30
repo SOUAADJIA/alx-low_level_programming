@@ -5,7 +5,7 @@
  *
  * @n:
  *
- * Return:
+ * Return: string
  */
 char *leet(char *n)
 {
