@@ -12,10 +12,8 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int len_n1 = 0, len_n2 = 0;
-	int digit1 = 0, digit2 = 0;
-	int sum, carry = 0, position = 0;
-	int i = 0, j = position - 1;
+	int len_n1 = 0, len_n2 = 0, digit1 = 0, digit2 = 0;
+	int sum, carry = 0, position = 0, i, j;
 	char tmp;
 
 	while (n1[len_n1] != '\0')
@@ -43,6 +41,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		r[position++] = carry + '0';
 	}
 	r[position] = '\0';
+	i = 0;
+	j = position - 1;
 	while (i < j)
 	{
 		tmp = r[i];
