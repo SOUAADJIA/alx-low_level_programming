@@ -4,7 +4,7 @@
 /**
  * print_chessboard - function that prints the chessboard.
  *
- * @a:
+ * @a: unspecified number of rows
  * Return: void
  */
 
