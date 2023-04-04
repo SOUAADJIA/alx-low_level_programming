@@ -15,12 +15,10 @@ unsigned int _strspn(char *s, char *accept)
 {
 	int i, j;
 	int count = 0;
-	int len_s = strlen(s);
-	int len_accept = strlen(accept);
 
-	for (i = 0; i < len_s; i++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (j = 0; j < len_accept; j++)
+		for (j = 0; accept[j] != '\0'; j++)
 		{
 			if (s[i] == accept[j])
 			{
@@ -28,7 +26,7 @@ unsigned int _strspn(char *s, char *accept)
 				break;
 			}
 		}
-		if (j == len_accept)
+		if (j == '\0')
 			return (count);
 	}
 	return (count);
