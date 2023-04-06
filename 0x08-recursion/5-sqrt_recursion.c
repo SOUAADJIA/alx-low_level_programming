@@ -21,8 +21,8 @@ int _sqrt_recursion(int n)
 /**
  * calculate_square - calculate square
  *
- * @n: entiger
- * @i: entiger
+ * @n: integer
+ * @i: integer
  *
  * Return: square
  */
