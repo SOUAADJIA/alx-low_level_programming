@@ -2,8 +2,8 @@
 
 /**
  * wildcmp - function that compares two strings
- * @s1: first string
- * @s2: second string with the special character *
+ * @s1: pointer to the first string
+ * @s2: pointer to the second string (may contain '*')
  *
  * Return: returns 1 if the strings can be considered identical,
  * otherwise return 0.
