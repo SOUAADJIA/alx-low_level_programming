@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - Entry point
+ * main - prints the number of arguments passed into it.
  *
  * @argc: count the number of arguments passed to the program
  * @argv: one-dimensional array of strings. Each string is one of
@@ -10,6 +10,6 @@
  */
 int main(int argc, char *argv[] __attribute__((unused)))
 {
-	printf("%d\n", argc);
+	printf("%d\n", argc - 1);
 	return (0);
 }
