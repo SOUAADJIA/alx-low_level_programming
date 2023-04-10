@@ -3,13 +3,13 @@
 #include "main.h"
 
 /**
- * main - program that multiplies two numbers.
+ * main - that adds positive numbers.
  *
  * @argc: count the number of arguments passed to the program
  * @argv: one-dimensional array of strings. Each string is one of
  * the arguments that was passed to the program.
  *
- * Return: Always 0 (sucess)
+ * Return: 0 (sucess) or 1 for error
  */
 int main(int argc, char *argv[])
 {
