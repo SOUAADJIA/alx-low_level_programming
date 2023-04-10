@@ -31,8 +31,11 @@ int main(int argc, char *argv[])
 	}
 	for (i = 0; i < 5; i++) /* 5 is the number of elements in coins array*/
 	{
-		min_coins += cents / coins[i];
-		cents = cents % coins[i];
+		while (cents >= coins[i])
+		{
+			cents -= coins[i];
+			min_coins++;
+		}
 	}
 	printf("%d\n", min_coins);
 	return (0);
