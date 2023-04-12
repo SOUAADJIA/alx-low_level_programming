@@ -19,6 +19,8 @@ int **alloc_grid(int width, int height)
 	if (width <= 0 || height <= 0)
 		return (NULL);
 	grid = malloc(height * sizeof(int *));
+	/*allocates an array of height pointers to integer, and returns*/
+       /*a pointer to the first element of the array*/
 	if (grid == 0)
 		return (NULL);
 	for (i = 0; i < height; i++)
