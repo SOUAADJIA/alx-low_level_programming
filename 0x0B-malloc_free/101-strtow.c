@@ -37,7 +37,7 @@ char **strtow(char *str)
 		if (array_words[i] == NULL)
 		{
 			for (j = 0; j < i; j++)
-				free(array_words[i]);
+				free(array_words[j]);
 			free(array_words);
 			return (NULL);
 		}
