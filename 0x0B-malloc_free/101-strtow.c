@@ -45,7 +45,7 @@ char **strtow(char *str)
             return (NULL);
         }
 
-        strncpy(array_words[i], &str[k], len_word);
+        _strncpy(array_words[i], &str[k], len_word);
         array_words[i][len_word] = '\0';
         k = j;
     }
@@ -54,4 +54,28 @@ char **strtow(char *str)
 
     return (array_words);
 }
+/**
+ * _strncpy - copy a string
+ *
+ * @dest: string
+ * @src: string
+ * @n: bytes to copy
+ *
+ * Return: dest
+ */
+char *_strncpy(char *dest, char *src, int n)
+{
+	int j = 0;
 
+	while (j < n && src[j] != '\0')
+	{
+		dest[j] = src[j];
+		j++;
+	}
+	while (j < n)
+	{
+		dest[j] = '\0';
+		j++;
+	}
+	return (dest);
+}
