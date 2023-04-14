@@ -4,7 +4,7 @@
  * string_nconcat - function that concatenates two strings.
  * @s1: first string
  * @s2: second string
-
+ * @n: number of bytes to concatenates from s2
  * Return: pointer shall point to a newly allocated space in memory,
  * which contains s1, followed by the first n bytes of s2, and null terminated
  * If the function fails, it should return NULL
@@ -29,11 +29,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	s3 = malloc((s1_len + copy_len + 1) * sizeof(char));
 	if (s3 == NULL)
-		return(NULL);
+		return (NULL);
 	_memcpy(s3, s1, s1_len);
 	_memcpy(s3 + s1_len, s2, copy_len);
 	s3[s1_len + copy_len] = '\0';
-	return(s3);
+	return (s3);
 }
 /**
  * _memcpy - function copies n bytes from memory area src to memory area dest
