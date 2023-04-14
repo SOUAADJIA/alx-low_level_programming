@@ -1,5 +1,31 @@
 #include "main.h"
 #include <stdlib.h>
+
+/**
+ * how_words - calculate how many words in string
+ * @str: our string
+ *
+ * Return: how many words in the string
+ */
+int how_words(char *str)
+{
+	int i, a = 0;
+	int count_words = 0;
+
+	if (str[0] != ' ')
+		a = 1;
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] == ' ')
+			a = 1;
+		if (str[i] != ' ' && a == 1)
+		{
+			a = 0;
+			count_words++;
+		}
+	}
+	return (count_words);
+}
 /**
  * strtow - function that splits a string into words.
  * @str: tring tosplit
@@ -10,28 +36,20 @@
 char **strtow(char *str)
 {
 	char **array_words;
-	int i, j, k = 0, how_words = 0, len_word = 0, a = 0;
+	int i, j, k = 0, len_word = 0;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		if (str[i] == ' ')
-			a = 1;
-		if (str[i] != ' ' && a == 1)
-		{
-			a = 0;
-			how_words++;
-		}
-	}
-	array_words = malloc((how_words + 1) * sizeof(char *));
+
+	if (how_words(str) == 0)
+		return (NULL);
+	array_words = malloc((how_words(str) + 1) * sizeof(char *));
 	if (array_words == NULL)
 		return (NULL);
-	for (i = 0; i < how_words; i++)
+	for (i = 0; i < how_words(str); i++)
 	{
 		while (str[k] == ' ')
 			k++;
-		/*find the end of the current word.*/
 		for (j = k; str[j] != ' ' && str[j] != '\0'; j++)
 			;
 		len_word = j - k;
@@ -47,7 +65,7 @@ char **strtow(char *str)
 		array_words[i][len_word] = '\0';
 		k = j;
 	}
-	array_words[how_words] = NULL;
+	array_words[how_words(str)] = NULL;
 	return (array_words);
 }
 
