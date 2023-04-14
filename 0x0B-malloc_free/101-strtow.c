@@ -10,23 +10,25 @@
 char **strtow(char *str)
 {
 	char **array_words;
-	int i, j, k = 0;
-	int how_words = 0, len_word = 0;
+	int i, j, k = 0, how_words = 0, len_word = 0, a = 0;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] != ' ' && (i == 0 || str[i - 1] == ' '))
+		if (str[i] == ' ')
+			a = 1;
+		if (str[i] != ' ' && a == 1)
+		{
+			a = 0;
 			how_words++;
+		}
 	}
 	array_words = malloc((how_words + 1) * sizeof(char *));
 	if (array_words == NULL)
 		return (NULL);
-/* i counter to keep track of the number of words that have been extracted*/
 	for (i = 0; i < how_words; i++)
 	{
-/* find the start of the next word by skipping over any ' ' in the string.*/
 		while (str[k] == ' ')
 			k++;
 		/*find the end of the current word.*/
@@ -41,12 +43,10 @@ char **strtow(char *str)
 			free(array_words);
 			return (NULL);
 		}
-/*Each element of this array should contain a single word, \0 */
 		_strncpy(array_words[i], &str[k], len_word);
 		array_words[i][len_word] = '\0';
 		k = j;
 	}
-	/* add a NULL terminator to the array*/
 	array_words[how_words] = NULL;
 	return (array_words);
 }
