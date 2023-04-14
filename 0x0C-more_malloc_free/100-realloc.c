@@ -20,7 +20,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		return (ptr);
 	/* If new_size is equal to zero, and ptr is not NULL,*/
 /* then the call is equivalent to free(ptr). Return NULL*/
-	else if (new_size == 0 && ptr == NULL)
+	else if (new_size == 0 && ptr != NULL)
 	{
 		free(ptr);
 		return (NULL);
