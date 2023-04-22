@@ -53,12 +53,10 @@ void print_float(va_list arg)
 
 void print_string(va_list arg)
 {
-	char *str = va_arg(arg, char *);
+	char *str;
 
-	if (str == NULL)
-		printf("(nil)");
-	else
-		printf("%s", str);
+	str = va_arg(arg, char *);
+	printf("%s", str == NULL ? "(nil)" : str);
 }
 
 
