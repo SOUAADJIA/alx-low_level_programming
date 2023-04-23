@@ -82,6 +82,7 @@ void print_all(const char * const format, ...)
 
 	while (format && format[i])
 	{
+		j = 0;
 		format_type = format[i];
 		while (j < 4 && format_type != "cifs"[j])
 			j++;
