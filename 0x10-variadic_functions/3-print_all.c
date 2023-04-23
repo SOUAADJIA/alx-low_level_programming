@@ -80,17 +80,18 @@ void print_all(const char * const format, ...)
 	};
 	va_start(args, format);
 
-	while (format != NULL && format[i] != '\0')
+	while (format && format[i])
 	{
 		format_type = format[i];
-
 		while (j < 4 && format_type != "cifs"[j])
 			j++;
 		if (j < 4)
+		{
 			(*print_func[j])(args);
+			if (format[i + 1] != '\0')
+				printf(", ");
+		}
 		i++;
-		if (j < 4 && format[i] != '\0')
-			printf(", ");
 	}
 	printf("\n");
 	va_end(args);
