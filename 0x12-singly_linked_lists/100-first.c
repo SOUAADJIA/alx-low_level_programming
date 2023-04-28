@@ -1,6 +1,6 @@
 #include "lists.h"
 #include <stdio.h>i
-/* GCC Extention: and is not part of standard C*/
+
 void print_before_main(void) __attribute__ ((constructor));
 
 /**
@@ -15,3 +15,5 @@ void print_before_main(void)
 			"I bore my house upon my back!\n");
 
 }
+
+/* __attribute__ ((constructor)) GCC Extention: and is not part of standard C*/
