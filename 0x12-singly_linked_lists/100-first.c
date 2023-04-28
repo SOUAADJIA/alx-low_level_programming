@@ -1,6 +1,7 @@
 #include "lists.h"
-#include <stdio.h>i
+#include <stdio.h>
 
+/*This is a GCC extension, and is not part of standard C*/
 void print_before_main(void) __attribute__ ((constructor));
 
 /**
