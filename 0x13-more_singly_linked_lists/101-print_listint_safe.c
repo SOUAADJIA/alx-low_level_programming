@@ -11,28 +11,31 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t nbr = 0;
-	const listint_t *slow = head, *fast = head;
+	const listint_t *slow, *fast;
+
+	if (!head)
+		exit(98);
+	slow = head;
+	fast = head->next;
+	
+	printf("[%p] %d\n", (void *)slow, slow->n);
+	nbr++;
 
 	while (slow && fast && fast->next)
 	{
-		printf("[%p] %d\n", (void *)slow, slow->n);
 		slow = slow->next;
 		fast = fast->next->next;
+		printf("[%p] %d\n", (void *)slow, slow->n);
+		nbr++;
 
 		/* detect a loop*/
 
 		if (slow == fast)
 		{
-			printf("[%p] %d\n", (void *)slow, slow->n);
 			printf("-> [%p] %d\n", (void *)fast, fast->n);
 			exit(98);
 		}
-		nbr++;
 	}
-	if (slow)
-	{
-		printf("[%p] %d\n", (void *)slow, slow->n);
-		nbr++;
-	}
+
 	return (nbr);
 }
