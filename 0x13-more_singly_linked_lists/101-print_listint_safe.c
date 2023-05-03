@@ -20,7 +20,7 @@ size_t print_listint_safe(const listint_t *head)
 		slow = slow->next;
 		/*check if loop exist*/
 		/*iterate from the beginning of the list to the current node*/
-		for (i = 0, fast = head; i < nbr; fast = fast->next, i++)
+		for (i = 0, fast = head; i < nbr; i++, fast = fast->next)
 		{
 			if (slow == fast)
 			{
