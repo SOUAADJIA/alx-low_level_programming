@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- * freeilistint_safe - a function that frees a listint_t list.
+ * free_listint_safe - a function that frees a listint_t list.
  * @h: pointer to a pointer to the head of the list
  *
  * Return: the size of the list that was free’d
