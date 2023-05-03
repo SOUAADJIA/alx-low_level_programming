@@ -24,7 +24,7 @@ size_t print_listint_safe(const listint_t *head)
 		node = node->next;
 		/* detect when a node is visited for the second time*/
 		/*and stop printing the list to prevent infinite looping.*/
-		if (tmp <= node)
+		if (node && tmp <= node)
 		{
 			printf("-> [%p] %d\n", (void *)node, node->n);
 			exit(98);
