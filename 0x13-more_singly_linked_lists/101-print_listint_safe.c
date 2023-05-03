@@ -10,32 +10,27 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t nbr = 0;
-	const listint_t *slow, *fast;
+	size_t nbr = 0, i;
+	const listint_t *slow = head, *fast;
 
-	if (!head)
-		exit(98);
-	slow = head;
-	fast = head->next;
-
-	printf("[%p] %d\n", (void *)slow, slow->n);
-	nbr++;
-
-	while (slow && fast && fast->next)
+	while (slow)
 	{
-		slow = slow->next;
-		fast = fast->next->next;
 		printf("[%p] %d\n", (void *)slow, slow->n);
 		nbr++;
-
-		/* detect a loop*/
-
-		if (slow == fast)
+		slow = slow->next;
+		/*check if loop exist*/
+		/*iterate from the beginning of the list to the current node*/
+		for (i = 0, fast = head; i < nbr; fast = fast->next, i++)
 		{
-			printf("-> [%p] %d\n", (void *)fast, fast->n);
-			exit(98);
+			if (slow == fast)
+			{
+				/*print the address and value of the node where the loop starts*/
+				printf("-> [%p] %d\n", (void *)fast, fast->n);
+				return (nbr);
+			}
 		}
+		if (!head)
+			exit(98);
 	}
-
 	return (nbr);
 }
