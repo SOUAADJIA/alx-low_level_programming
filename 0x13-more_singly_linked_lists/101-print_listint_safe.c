@@ -11,19 +11,24 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t nbr = 0;
-	const listint_t *tmp;
+	const listint_t *tmp, *node;
 
-	while (head)
+	if (!head)
+		exit(98);
+	node = head;
+	while (node)
 	{
 		nbr++;
-		printf("[%p] %d\n", (void *)head, head->n);
-		tmp = head;
-		head = head->next;
+		printf("[%p] %d\n", (void *)node, node->n);
+		tmp = node;
+		node = node->next;
+		if (!node)/*check if the end is reached*/
+			break;
 		/* detect when a node is visited for the second time*/
 		/*and stop printing the list to prevent infinite looping.*/
-		if (tmp <= head)
+		if (tmp <= node)
 		{
-			printf("-> [%p] %d\n", (void *)head, head->n);
+			printf("-> [%p] %d\n", (void *)node, node->n);
 			exit(98);
 		}
 	}
