@@ -17,8 +17,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	char *buff;
 	size_t bytes_to_read;
 	size_t bytes_to_write;
-	FILE *fp = fopen(filename, "r");
+	FILE *fp;
 
+
+	fp = fopen(filename, O_RDONLY);
 	if (filename == NULL)
 		return (0);
 	if (fp == NULL)
