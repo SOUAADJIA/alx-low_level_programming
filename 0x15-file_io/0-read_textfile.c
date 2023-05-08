@@ -34,14 +34,16 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (bytes_to_read == 0)
 	{
 		fclose(fp);
+		free(buff);
 		return (0);
 	}
 
 	bytes_to_write = fwrite(buff, 1, bytes_to_read, stdout);
 	fclose(fp);
+	free(buff);
 
-	if (bytes_to_write < bytes_to_read)
+	if (bytes_to_write != bytes_to_read)
 		return (0);
-	return (bytes_to_write);
+	return (bytes_to_read);
 }
 
