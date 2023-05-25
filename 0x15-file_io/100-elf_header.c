@@ -94,6 +94,9 @@ void print_osabi_info(unsigned char osabi)
 		case 9:
 			printf("FreeBSD\n");
 			break;
+		case 101:
+			printf("GNU/Linux\n");  /*case for NetBSD*/
+			break;
 		default:
 			printf("<unknown: %u>\n", osabi);
 			break;
