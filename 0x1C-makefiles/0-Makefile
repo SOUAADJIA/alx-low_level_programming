@@ -1,0 +1,7 @@
+# Name of the executable
+TARGET = school
+
+# Rule to build the executable
+all: main.c school.c
+	gcc main.c school.c -o $(TARGET)
+
