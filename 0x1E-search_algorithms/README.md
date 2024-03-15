@@ -7,9 +7,6 @@
 - [Usage](#usage)
 - [Files](#files)
 - [Usage](#usage)
-- [Learning Objectives](#learning-objectives)
-- [Tasks](#tasks)
-  - [0. Linear search](#0-linear-search)
 
 ---
 
@@ -44,8 +41,3 @@ sqrt n -> O(sqrt(n))
 log(n) -> O(log(n))
 n * log(n) -> O(nlog(n))
 …
-## Usage
-
-To use the provided functions, you need to clone this repository and compile the files using gcc. For example:
-
-
